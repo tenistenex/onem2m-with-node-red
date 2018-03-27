@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    RED.nodes.registerType('oneM2M-Data-ContentInstance',{
+        category: 'function',
+        color: '#00DD77',
+        defaults: {
+            xSCL: { value:"", type: "xSCL"},
+            xA: { value:"", type: "xA"},
+            obixCategory: { value: ""},
+			obixData: { value: ""},
+			obixUnit: { value: ""},
+			obixContainerName: { value: ""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "white-globe.png",
+        label: "Data-ContentInstance"
+    });
+</script>
+
+<script type="text/x-red" data-template-name="oneM2M-Data-ContentInstance">
+    <div class="form-row">
+        <label for="node-input-xSCL"><i class="icon-tag"></i> xSCL</label>
+        <input type="text" id="node-input-xSCL">
+    </div>
+    <div class="form-row">
+        <label for="node-input-xA"><i class="icon-tag"></i> xA</label>
+        <input type="text" id="node-input-xA">
+    </div>
+	<div class="form-row">
+        <label for="node-input-obixCategory"><i class="icon-tag"></i> Category</label>
+        <input type="text" id="node-input-obixCategory" placeholder="Category">
+    </div>
+	<div class="form-row">
+        <label for="node-input-obixData"><i class="icon-tag"></i> Data</label>
+        <input type="text" id="node-input-obixData" placeholder="Data">
+    </div>
+	<div class="form-row">
+        <label for="node-input-obixUnit"><i class="icon-tag"></i> Unit</label>
+        <input type="text" id="node-input-obixUnit" placeholder="Unit">
+    </div>
+	<div class="form-row">
+        <label for="node-input-obixContainerName"><i class="icon-tag"></i> ContainerName</label>
+        <input type="text" id="node-input-obixContainerName" placeholder="ContainerName">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="oneM2M-Data-ContentInstance">
+    <p>A node to push application's data (a.k.a. Content Instance) @ Data Container </p>
+</script>
