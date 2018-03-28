@@ -9,7 +9,9 @@
             obixCategory: { value: ""},
 			obixLocation: { value: ""},
             obixAnnounce: { value: false},
-			obixRr: { value: false}
+			obixRr: { value: false},
+			obixPoA: { value: ""},
+			
         },
         inputs:1,
         outputs:1,
@@ -39,6 +41,10 @@
         <label for="node-input-obixLocation"><i class="icon-tag"></i> Location</label>
         <input type="text" id="node-input-obixLocation" placeholder="Location">
     </div>
+	<div class="form-row">
+        <label for="node-input-obixLocation"><i class="icon-tag"></i> Ponit of Access</label>
+        <input type="text" id="node-input-obixPoA" placeholder="PoA">
+    </div>
     <div class="form-row">
         <label for="node-input-obixRr"><i class="icon-tag"></i> Rr</label>
         <input type="checkbox" id="node-input-obixRr" placeholder="Rr" style="{text-align:left;}">
@@ -50,5 +56,5 @@
 </script>
 
 <script type="text/x-red" data-help-name="oneM2M-Application">
-    <p>A node to define a new OM2M application </p>
+    <p>A node to define a new OneM2M application </p>
 </script>

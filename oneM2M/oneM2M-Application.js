@@ -9,6 +9,8 @@ module.exports = function(RED){
 		this.obixLocation = config.obixLocation || 'demo';
 		this.obixRr = config.obixRr || false;
         this.obixAnnounce = config.obixAnnounce || false;
+		this.obixPoA = config.obixPoA;
+		
 		
 		
 
@@ -29,6 +31,7 @@ module.exports = function(RED){
                     msg.payload =  "<m2m:ae xmlns:m2m=" + "\"" + "http://www.onem2m.org/xml/protocols" + "\"" + " rn="+ "\""+ this.obixRn + "\""+ ">";
 				    msg.payload += "<api>" + this.appId + "</api>";
                     msg.payload += "<lbl>Type/" + this.obixType + " Category/" + this.obixCategory + " Location/" + this.obixLocation + "</lbl>";
+					msg.payload += "<poa>" + this.obixPoA + "</poa>"
 					
 					if (this.obixRr == true) {
                         msg.payload+="<rr>true</rr>";

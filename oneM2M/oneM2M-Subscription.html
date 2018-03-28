@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    RED.nodes.registerType('oneM2M-Subscription',{
+        category: 'function',
+        color: '#00DD77',
+        defaults: {
+            xSCL: { value:"", type: "xSCL"},
+			notificationURI: { value: ""},
+			obixRn: { value: ""},
+			obixApp: { value: ""},
+			obixData: { value: ""},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "white-globe.png",
+        label: "Subscription"
+    });
+</script>
+
+<script type="text/x-red" data-template-name="oneM2M-Subscription">
+    <div class="form-row">
+        <label for="node-input-xSCL"><i class="icon-tag"></i> xSCL</label>
+        <input type="text" id="node-input-xSCL">
+    </div>
+	
+	<div class="form-row">
+        <label for="node-input-obixRn"><i class="icon-tag"></i> Resource Name</label>
+        <input type="text" id="node-input-obixRn" placeholder="Resource Name">
+    </div>
+	
+	<div class="form-row">
+        <label for="node-input-notificationURI"><i class="icon-tag"></i> notificationURI</label>
+        <input type="text" id="node-input-notificationURI" placeholder="notificationURI">
+    </div>
+	
+	<div class="form-row">
+        <label for="node-input-obixApp"><i class="icon-tag"></i> Application Name</label>
+        <input type="text" id="node-input-obixApp" placeholder="Application Name">
+    </div>
+	<div class="form-row">
+        <label for="node-input-obixData"><i class="icon-tag"></i> Data Container Name</label>
+        <input type="text" id="node-input-obixData" placeholder="Data Container Name">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="oneM2M-Subscription">
+    <p>A node to define a new OneM2M Subscription </p>
+</script>
