@@ -16,10 +16,18 @@ module.exports = function(RED){
 				this.obixRn =this.xA.Rn;
 
                 if (this.xSCL) {
+					
+					if (this.xSCL.port == "8080"){
+						cse_name = "/in-name/"
+					}
+					else {
+						cse_name = "/mn-name/"
+					}
+						
                     msg.method = "POST";
 					msg.headers['X-M2M-Origin'] = 'admin:admin';
 					msg.headers['Content-Type'] = 'application/xml;ty=3';
-                    msg.url = "http://" + this.xSCL.host + ":" + this.xSCL.port + "/~/" + this.xSCL.sclId + "/in-name/" + this.obixRn;
+                    msg.url = "http://" + this.xSCL.host + ":" + this.xSCL.port + "/~/" + this.xSCL.sclId + cse_name + this.obixRn;
                     msg.payload =  "<m2m:cnt xmlns:m2m=" + "\"" + "http://www.onem2m.org/xml/protocols" + "\"" + " rn="+ "\""+ "DESCRIPTOR" + "\">" + "</m2m:cnt>";
                     this.send(msg);
                 } else {

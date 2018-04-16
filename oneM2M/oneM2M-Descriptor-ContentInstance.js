@@ -14,11 +14,19 @@ module.exports = function(RED){
                 this.appId = this.xA.appId;
 				this.obixRn = this.xA.Rn;
                 if (this.xSCL) {
+					
+					if (this.xSCL.port == "8080"){
+						cse_name = "/in-name/"
+					}
+					else {
+						cse_name = "/mn-name/"
+					}
+					
                     msg.method = "POST";
 					msg.headers['X-M2M-Origin'] = 'admin:admin';
 					msg.headers['Content-Type'] = 'application/xml;ty=4';
 					
-                    msg.url = "http://" + this.xSCL.host + ":" + this.xSCL.port + "/~/" + this.xSCL.sclId + "/in-name/" + this.obixRn + "/DESCRIPTOR";
+                    msg.url = "http://" + this.xSCL.host + ":" + this.xSCL.port + "/~/" + this.xSCL.sclId + cse_name + this.obixRn + "/DESCRIPTOR";
 					/*
                     msg.payload =  "<m2m:cin xmlns:m2m=" + "\"" + "http://www.onem2m.org/xml/protocols" + "\"" + ">";
                     msg.payload += "<cnf>application/xml</cnf>";
