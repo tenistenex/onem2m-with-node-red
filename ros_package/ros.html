@@ -1,0 +1,92 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ros-subscribe',{
+        category: 'input',
+        color: '#fef5ff',
+        defaults: {
+            server: {type:"ros-server"},
+            topicname: {value: ""}
+        },
+        inputs:0,
+        outputs:1,
+        paletteLabel: 'ros sub',
+        icon: "icon.png",
+        label: function() {
+            return this.topicname||"ros subscribe";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ros-subscribe">
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-user"></i> ROS Server</label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topicname"><i class="icon-tag"></i> Topic</label>
+        <input type="text" id="node-input-topicname" placeholder="/mytopic">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ros-publish',{
+        category: 'output',
+        color: '#fef5ff',
+        defaults: {
+            server: {type:"ros-server"},
+            topicname: {value: ""},
+            msgtype: {value: "std_msgs/String"} 
+        },
+        inputs:1,
+        outputs:0,
+        align: 'right',
+        paletteLabel: 'ros pub',
+        icon: "icon.png",
+        label: function() {
+            return this.topicname||"ros publish";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ros-publish">
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-user"></i> ROS Server</label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topicname"><i class="icon-tag"></i> Topic</label>
+        <input type="text" id="node-input-topicname" placeholder="/mytopic">
+    </div>
+    <div class="form-row">
+        <label for="node-input-msgtype"><i class="fa fa-dot-circle-o"></i> Type</label>
+        <select id="node-input-msgtype">
+            <option value="std_msgs/String">std_msgs/String</option>
+            <option value="std_msgs/Int16">std_msgs/Int16</option>
+            <option value="std_msgs/Int32">std_msgs/Int32</option>
+			<option value="geometry_msgs/Twist">geometry_msgs/Twist</option>
+        </select>
+    </div>
+</script>
+
+
+<script type="text/x-red" data-help-name="ros-subscribe">
+    <p>A node that subscribe to ROS bridge websocket server</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ros-server',{
+        category: 'config',
+        defaults: {
+            url: {value:"wss://bennu.magic.ubc.ca:9000/rosws",required:true}
+        },
+        label: function() {
+            return this.url;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ros-server">
+    <div class="form-row">
+        <label for="node-config-input-url"><i class="icon-bookmark"></i> Url</label>
+        <input type="text" id="node-config-input-url">
+    </div>
+</script>
