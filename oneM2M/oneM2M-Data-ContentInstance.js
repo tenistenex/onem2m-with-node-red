@@ -28,6 +28,10 @@ module.exports = function(RED){
 					else {
 						cse_name = "/mn-name/"
 					}
+				if (this.obixData != "")
+				{
+					this.obixData = msg.payload;
+				}
 					
                     msg.method = "POST";
 					msg.headers['X-M2M-Origin'] = 'admin:admin';
